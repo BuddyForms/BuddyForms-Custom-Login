@@ -70,6 +70,28 @@ function buddyforms_custom_login_settings_page_tab( $tab ) {
                         </tr>
                         <tr valign="top">
                             <th scope="row" class="titledesc">
+                                <label for="buddyforms_custom_login_lavel_1">Display Registration Link?</label>
+                                <span class="buddyforms-help-tip">You can select a Registation Page </span></th>
+                            <td>
+		                        <?php
+		                        $register_page  = empty( $custom_login_settings['register_page'] ) ? '' : $custom_login_settings['register_page'];
+
+		                        if ( isset( $pages ) && is_array( $pages ) ) {
+			                        echo '<select name="buddyforms_custom_login_settings[register_page]" id="buddyforms_registration_form">';
+			                        echo '<option value="default">' . __( 'WordPress Default', 'buddyforms' ) . '</option>';
+			                        echo '<option value="none">' . __( 'None', 'buddyforms' ) . '</option>';
+			                        foreach ( $pages as $page_id => $page_name ) {
+				                        if ( ! empty( $page_name ) ) {
+					                        echo '<option ' . selected( $register_page, $page_id ) . 'value="' . $page_id . '">' . $page_name . '</option>';
+				                        }
+			                        }
+			                        echo '</select>';
+		                        }
+		                        ?>
+                            </td>
+                        </tr>
+                        <tr valign="top">
+                            <th scope="row" class="titledesc">
                                 <label for="buddyforms_custom_login_lavel_1">Redirect after Login</label>
                                 <span class="buddyforms-help-tip"></span></th>
                             <td class="forminp forminp-select">
@@ -85,28 +107,6 @@ function buddyforms_custom_login_settings_page_tab( $tab ) {
 			                        }
 			                        echo '</select>';
 		                        } ?>
-                            </td>
-                        </tr>
-                        <tr valign="top">
-                            <th scope="row" class="titledesc">
-                                <label for="buddyforms_custom_login_lavel_1">Display Registration Link?</label>
-                                <span class="buddyforms-help-tip"></span></th>
-                            <td>
-		                        <?php
-		                        $register_link  = empty( $custom_login_settings['register_link'] ) ? '' : $custom_login_settings['register_link'];
-
-		                        if ( isset( $buddyforms ) && is_array( $buddyforms ) ) {
-			                        echo '<select name="buddyforms_registration_form" id="buddyforms_registration_form">';
-			                        echo '<option value="default">' . __( 'WordPress Default', 'buddyforms' ) . '</option>';
-			                        echo '<option value="none">' . __( 'None', 'buddyforms' ) . '</option>';
-			                        foreach ( $buddyforms as $form_slug => $form ) {
-				                        if ( $form['form_type'] == 'registration' ) {
-					                        echo '<option ' . selected( $register_link, $form['slug'] ) . 'value="' . $form['slug'] . '">' . $form['name'] . '</option>';
-				                        }
-			                        }
-			                        echo '</select>';
-		                        }
-		                        ?>
                             </td>
                         </tr>
                         </tbody>
