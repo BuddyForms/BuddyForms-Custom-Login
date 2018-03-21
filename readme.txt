@@ -11,22 +11,20 @@ User a Custom Login and define the Login Redirect and Registration Link
 
 == Description ==
 
-This Plugin enables you to create a Global Login and redirect the WordPress Login to the new Login Page.
-
-A new Settings Tab will be created for you under the BuddyForms Admin Settings "Custom Login"
+This plugin enables you to create a global login and redirect the WordPress login to a page. A new settings tab will be created for you under BuddyForms in the admin settings to set up the login form.
 
 > #### Options of the Settings Page
     > * Login Page
-        ** Select the Page you want to use for the redirect.
+        ** Select the page you want to use for the redirect.
     > * Display Login Form?
         ** Overwrite the page content
         ** Above the content
         ** Under the content
         ** Use the Shortcode
 > * Display Registration Link?
-    ** Select a Registration Page to Rewrite the Registration Link
+    ** Select a registration page to rewrite the registration Link
 > * Redirect after Login
-    ** Select a Page you like to use for the Redirect.
+    ** Select a page you like to use for the redirect.
     ** redirect to the user profile or any custom URL
 
 ---

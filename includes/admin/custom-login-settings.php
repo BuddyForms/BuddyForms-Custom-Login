@@ -5,7 +5,7 @@ function buddyforms_custom_login_admin_tab( $tabs ) {
 
 	$tabs['custom_login'] = 'Custom Login';
 	return $tabs;
-	
+
 }
 
 add_action( 'buddyforms_settings_page_tab', 'buddyforms_custom_login_settings_page_tab' );
