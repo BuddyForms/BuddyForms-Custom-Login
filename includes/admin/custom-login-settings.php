@@ -71,7 +71,7 @@ function buddyforms_custom_login_settings_page_tab( $tab ) {
                         <tr valign="top">
                             <th scope="row" class="titledesc">
                                 <label for="buddyforms_custom_login_lavel_1">Display Registration Link?</label>
-                                <span class="buddyforms-help-tip">You can select a Registation Page </span></th>
+                                <span class="buddyforms-help-tip"></span></th>
                             <td>
 		                        <?php
 		                        $register_page  = empty( $custom_login_settings['register_page'] ) ? '' : $custom_login_settings['register_page'];
