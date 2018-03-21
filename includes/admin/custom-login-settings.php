@@ -4,8 +4,8 @@ add_filter( 'buddyforms_admin_tabs', 'buddyforms_custom_login_admin_tab', 1, 1 )
 function buddyforms_custom_login_admin_tab( $tabs ) {
 
 	$tabs['custom_login'] = 'Custom Login';
-
 	return $tabs;
+	
 }
 
 add_action( 'buddyforms_settings_page_tab', 'buddyforms_custom_login_settings_page_tab' );
@@ -15,9 +15,7 @@ function buddyforms_custom_login_settings_page_tab( $tab ) {
 	if ( $tab != 'custom_login' ) {
 		return $tab;
 	}
-
 	$custom_login_settings = get_option( 'buddyforms_custom_login_settings' );
-
 
 	?>
 

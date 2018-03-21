@@ -2,11 +2,11 @@
 
 /**
 * Plugin Name: BuddyForms Custom Login Page
-* Plugin URI: http://buddyforms.com/downloads/buddyforms-password-strength/
+* Plugin URI: https://themekraft.com/products/custom-login/
 * Description: Select a Custom Login Page
-* Version: 0.1
+* Version: 1.0
 * Author: ThemeKraft
-* Author URI: https://themekraft.com/buddyforms/
+* Author URI: https://themekraft.com/
 * License: GPLv2 or later
 * Network: false
 *
@@ -81,8 +81,6 @@ function buddyforms_site_register_link($wp_login_form){
 	$wp_login_form .= '<a href="' . esc_url( wp_lostpassword_url() ) . '">' . __('Lost Password?', 'buddyforms') . '</a> ';
 	return $wp_login_form;
 }
-
-
 
 add_filter( 'the_content', 'buddyforms_custom_login_the_content' );
 function buddyforms_custom_login_the_content( $content ) {
