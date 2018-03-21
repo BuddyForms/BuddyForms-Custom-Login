@@ -90,12 +90,18 @@ function buddyforms_custom_login_the_content( $content ) {
 	$custom_login_settings = get_option( 'buddyforms_custom_login_settings' );
 	$login_page  = empty( $custom_login_settings['login_page'] ) ? '' : $custom_login_settings['login_page'];
 	$display_login_form  = empty( $custom_login_settings['display_login_form'] ) ? 'overwrite' : $custom_login_settings['display_login_form'];
+	$redirect_page  = empty( $custom_login_settings['redirect_page'] ) ? '' : $custom_login_settings['redirect_page'];
 
 	if( get_the_ID() != $login_page ){
 		return $content;
 	}
 
-	$form = do_shortcode('[bf_login_form title="Willkommen zurück!"]');
+	if( empty( $redirect_page ) || $redirect_page == 'default' ){
+		$form = do_shortcode('[bf_login_form title=" "]');
+	} else {
+		$redirect_url = get_permalink( $redirect_page );
+		$form = do_shortcode('[bf_login_form title=" " redirect_url="' . $redirect_url . '"]');
+	}
 
 	if( $display_login_form == 'overwrite') {
 		return $form;
