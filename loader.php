@@ -44,13 +44,13 @@ function buddyforms_custom_login_page() {
 	}
 
 	$custom_login_settings = get_option( 'buddyforms_custom_login_settings' );
-	$page = empty( $custom_login_settings['page'] ) ? '' : $custom_login_settings['page'];
+	$login_page = empty( $custom_login_settings['login_page'] ) ? '' : $custom_login_settings['login_page'];
 
-	if( empty( $page ) ){
+	if( empty( $login_page ) || $login_page == 'default' ){
 		return;
 	}
 
-	$new_login_page_url = get_permalink( $page );
+	$new_login_page_url = get_permalink( $login_page );
 
 	if( $pagenow == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET') {
 		if( ! ( isset( $_GET['action']) && $_GET['action'] == 'lostpassword' || isset( $_GET['action']) && $_GET['action'] == 'rp' ) ){
@@ -62,12 +62,42 @@ function buddyforms_custom_login_page() {
 	}
 }
 
-
-
 //add_filter('login_form_bottom', 'baumensch_site_register_link');
-function baumensch_site_register_link($wp_login_form){
+function buddyforms_site_register_link($wp_login_form){
 	$url = home_url( '/jetzt-registrieren/' ); // new login page
 
 	$wp_login_form .= '<a href="' . $url . '">Jetzt Registrieren</a> ';
 	return $wp_login_form;
+}
+
+
+
+add_filter( 'the_content', 'buddyforms_custom_login_the_content' );
+function buddyforms_custom_login_the_content( $content ) {
+
+
+
+	$custom_login_settings = get_option( 'buddyforms_custom_login_settings' );
+	$login_page  = empty( $custom_login_settings['login_page'] ) ? '' : $custom_login_settings['login_page'];
+	$display_login_form  = empty( $custom_login_settings['display_login_form'] ) ? 'overwrite' : $custom_login_settings['display_login_form'];
+
+	if( get_the_ID() != $login_page ){
+		return $content;
+	}
+
+	$form = do_shortcode('[bf_login_form title="Willkommen zurück!"]');
+
+	if( $display_login_form == 'overwrite') {
+		return $form;
+	}
+	if( $display_login_form == 'above') {
+		return $form . $content;
+	}
+	if( $display_login_form == 'under') {
+		return $content . $form;
+	}
+
+	return $content;
+
+
 }
