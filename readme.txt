@@ -2,8 +2,8 @@
 Contributors: svenl77, themekraft, buddyforms
 Tags: login form, login redirect, login page, custom login, login
 Requires at least: 3.9
-Tested up to: 4.9.4
-Stable tag: 1.0
+Tested up to: 4.9
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -74,6 +74,11 @@ Head to the 'BuddyForms' menu item in your admin sidebar and go to the Settings 
 5. **Backend Overview** - The backend overview of your existing forms.
 
 == Changelog ==
+
+= 1.0.1 30. Mar. 2018 =
+* Added freemius integration
+* Add banner image and thumbnail to wordpress.org assets
+
 
 = 1.0 21. Mar. 2018 =
 first version

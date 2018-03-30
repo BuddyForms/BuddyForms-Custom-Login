@@ -4,7 +4,7 @@
 * Plugin Name: BuddyForms Custom Login Page
 * Plugin URI: https://themekraft.com/products/custom-login/
 * Description: Select a Custom Login Page
-* Version: 1.0
+* Version: 1.0.1
 * Author: ThemeKraft
 * Author URI: https://themekraft.com/
 * License: GPLv2 or later
@@ -113,4 +113,89 @@ function buddyforms_custom_login_the_content( $content ) {
 
 	return $content;
 
+}
+
+// Create a helper function for easy SDK access.
+function buddyforms_clp_fs() {
+	global $buddyforms_clp_fs;
+
+	if ( ! isset( $buddyforms_clp_fs ) ) {
+		// Include Freemius SDK.
+		// Include Freemius SDK.
+		if ( file_exists( dirname( dirname( __FILE__ ) ) . '/buddyforms/includes/resources/freemius/start.php' ) ) {
+			// Try to load SDK from parent plugin folder.
+			require_once dirname( dirname( __FILE__ ) ) . '/buddyforms/includes/resources/freemius/start.php';
+		} else if ( file_exists( dirname( dirname( __FILE__ ) ) . '/buddyforms-premium/includes/resources/freemius/start.php' ) ) {
+			// Try to load SDK from premium parent plugin folder.
+			require_once dirname( dirname( __FILE__ ) ) . '/buddyforms-premium/includes/resources/freemius/start.php';
+		}
+
+
+		$buddyforms_clp_fs = fs_dynamic_init( array(
+			'id'                  => '1924',
+			'slug'                => 'buddyforms-custom-login-page',
+			'type'                => 'plugin',
+			'public_key'          => 'pk_9e440e4e95f7a9556ae3c03c4c221',
+			'is_premium'          => false,
+			'has_paid_plans'      => false,
+			'parent'              => array(
+				'id'         => '391',
+				'slug'       => 'buddyforms',
+				'public_key' => 'pk_dea3d8c1c831caf06cfea10c7114c',
+				'name'       => 'BuddyForms',
+			),
+			'menu'                => array(
+				'first-path'     => 'edit.php?post_type=buddyforms&page=buddyforms_welcome_screen',
+				'support'        => false,
+			),
+		) );
+	}
+
+	return $buddyforms_clp_fs;
+}
+
+function buddyforms_clp_fs_is_parent_active_and_loaded() {
+	// Check if the parent's init SDK method exists.
+	return function_exists( 'buddyforms_core_fs' );
+}
+
+function buddyforms_clp_fs_is_parent_active() {
+	$active_plugins = get_option( 'active_plugins', array() );
+
+	if ( is_multisite() ) {
+		$network_active_plugins = get_site_option( 'active_sitewide_plugins', array() );
+		$active_plugins         = array_merge( $active_plugins, array_keys( $network_active_plugins ) );
+	}
+
+	foreach ( $active_plugins as $basename ) {
+		if ( 0 === strpos( $basename, 'buddyforms/' ) ||
+		     0 === strpos( $basename, 'buddyforms-premium/' )
+		) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+function buddyforms_clp_fs_init() {
+	if ( buddyforms_clp_fs_is_parent_active_and_loaded() ) {
+		// Init Freemius.
+		buddyforms_clp_fs();
+
+		// Parent is active, add your init code here.
+	} else {
+		// Parent is inactive, add your error handling here.
+	}
+}
+
+if ( buddyforms_clp_fs_is_parent_active_and_loaded() ) {
+	// If parent already included, init add-on.
+	buddyforms_clp_fs_init();
+} else if ( buddyforms_clp_fs_is_parent_active() ) {
+	// Init add-on only after the parent is loaded.
+	add_action( 'buddyforms_core_fs_loaded', 'buddyforms_clp_fs_init' );
+} else {
+	// Even though the parent is not activated, execute add-on for activation / uninstall hooks.
+	buddyforms_clp_fs_init();
 }
