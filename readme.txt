@@ -67,11 +67,9 @@ Head to the 'BuddyForms' menu item in your admin sidebar and go to the Settings 
 
 == Screenshots ==
 
-1. **Overview in Member Profile** - The overview of each author's posts to be seen in the related member profile.
-2. **Create/Edit Post in Member Profile** - When creating a new post or editing an existing one, right from the member profile.
-3. **Add New Form** - This is how it looks when you add a new form with BuddyForms.
-4. **Form Builder** - Enjoy the easy drag-and-drop form builder of BuddyForms.
-5. **Backend Overview** - The backend overview of your existing forms.
+1. **Settings Page** - Settings Page in the Admin under BuddyForms/ Settings/ Custom Login
+2. **Login Form in the Frontend
+
 
 == Changelog ==
 
