@@ -107,6 +107,46 @@ function buddyforms_custom_login_settings_page_tab( $tab ) {
 		                        } ?>
                             </td>
                         </tr>
+                        <tr valign="top">
+                            <th scope="row" class="titledesc">
+                                <label for="buddyforms_custom_login_redirect_logged_off_user">Redirect logged off users and create a private site and network</label>
+                                <span class="buddyforms-help-tip"></span></th>
+                            <td class="forminp forminp-select">
+		                        <?php
+		                        $redirect_logged_off_user  = empty( $custom_login_settings['redirect_logged_off_user'] ) ? 'No' : $custom_login_settings['redirect_logged_off_user'];
+
+			                        echo '<select name="buddyforms_custom_login_settings[redirect_logged_off_user]" id="buddyforms_custom_login_redirect_logged_off_user">';
+	                                    echo '<option ' . selected( $redirect_logged_off_user, 'No' ) . 'value="No">No</option>';
+	                                    echo '<option ' . selected( $redirect_logged_off_user, 'Yes' ) . 'value="Yes">Yes</option>';
+			                        echo '</select>';
+		                        ?>
+                            </td>
+                        </tr>
+                        <tr valign="top">
+                            <th scope="row" class="titledesc">
+                                <label for="buddyforms_custom_login_public_accessible">Public Accessible Pages</label>
+                                <span class="buddyforms-help-tip"></span></th>
+                            <td class="forminp forminp-select">
+		                        <?php
+		                        $public_accessible  = empty( $custom_login_settings['public_accessible'] ) ? '' : $custom_login_settings['public_accessible'];
+		                        if ( isset( $pages ) && is_array( $pages ) ) {
+			                        echo '<select class="bf-select2" multiple name="buddyforms_custom_login_settings[public_accessible][]" id="buddyforms_custom_login_public_accessible">';
+			                        $pages['default'] = 'WordPress Default';
+			                        foreach ( $pages as $page_id => $page_name ) {
+				                        if ( ! empty( $page_name ) ) {
+
+					                        $public_accessible_selcted = '';
+				                            if( in_array($page_id, $public_accessible) ){
+					                            $public_accessible_selcted = $page_id;
+                                            }
+
+					                        echo '<option ' . selected( $public_accessible_selcted, $page_id ) . 'value="' . $page_id . '">' . $page_name . '</option>';
+				                        }
+			                        }
+			                        echo '</select>';
+		                        } ?>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
 					<?php submit_button(); ?>
