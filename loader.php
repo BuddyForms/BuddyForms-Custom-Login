@@ -44,10 +44,12 @@ function buddyforms_custom_login_page() {
 		return;
 	}
 
-	$custom_login_settings    = get_option( 'buddyforms_custom_login_settings' );
-	$login_page               = empty( $custom_login_settings['login_page'] ) ? 'none' : $custom_login_settings['login_page'];
-	$register_page            = empty( $custom_login_settings['register_page'] ) ? 'none' : $custom_login_settings['register_page'];
-	$redirect_logged_off_user = empty( $custom_login_settings['redirect_logged_off_user'] ) ? 'No' : $custom_login_settings['redirect_logged_off_user'];
+	$custom_login_settings       = get_option( 'buddyforms_custom_login_settings' );
+	$login_page                  = empty( $custom_login_settings['login_page'] ) ? 'none' : $custom_login_settings['login_page'];
+	$register_page               = empty( $custom_login_settings['register_page'] ) ? 'none' : $custom_login_settings['register_page'];
+	$redirect_logged_off_user    = empty( $custom_login_settings['redirect_logged_off_user'] ) ? 'No' : $custom_login_settings['redirect_logged_off_user'];
+	$public_accessible_pages     = empty( $custom_login_settings['public_accessible_pages'] ) ? array() : $custom_login_settings['public_accessible_pages'];
+	$public_accessible_post_type = empty( $custom_login_settings['public_accessible_post_types'] ) ? array() : $custom_login_settings['public_accessible_post_types'];
 
 	if ( empty( $login_page ) || $login_page == 'default' || $login_page == 'none' ) {
 		$new_login_page_url = wp_login_url();
@@ -57,16 +59,26 @@ function buddyforms_custom_login_page() {
 
 	if ( ! is_user_logged_in() && $redirect_logged_off_user != 'No' ) {
 
+		if ( in_array( get_post_type(), $public_accessible_post_type ) ) {
+			return;
+		}
+
+		if ( is_page( $public_accessible_pages ) ) {
+			return;
+		}
 
 		$buddyforms_registration_page = get_option( 'buddyforms_registration_page' );
 
-//		if( ! empty($buddyforms_registration_page)){
-//			return;
-//		}
+		if ( ! empty( $buddyforms_registration_page ) ) {
+			if ( is_page( $buddyforms_registration_page ) ) {
+				return;
+			}
+		}
 
 		if ( is_page( $login_page ) ) {
 			return;
 		}
+
 		if ( is_page( $register_page ) ) {
 			return;
 		}
@@ -79,10 +91,10 @@ function buddyforms_custom_login_page() {
 				}
 			}
 		}
+
 		wp_redirect( $new_login_page_url );
 		exit;
 	}
-
 
 
 }
@@ -91,10 +103,8 @@ add_action( 'init', 'buddyforms_custom_login_page_init' );
 function buddyforms_custom_login_page_init() {
 	global $pagenow;
 
-	$custom_login_settings    = get_option( 'buddyforms_custom_login_settings' );
-	$login_page               = empty( $custom_login_settings['login_page'] ) ? 'none' : $custom_login_settings['login_page'];
-	$register_page            = empty( $custom_login_settings['register_page'] ) ? 'none' : $custom_login_settings['register_page'];
-	$redirect_logged_off_user = empty( $custom_login_settings['redirect_logged_off_user'] ) ? 'No' : $custom_login_settings['redirect_logged_off_user'];
+	$custom_login_settings = get_option( 'buddyforms_custom_login_settings' );
+	$login_page            = empty( $custom_login_settings['login_page'] ) ? 'none' : $custom_login_settings['login_page'];
 
 	if ( empty( $login_page ) || $login_page == 'default' || $login_page == 'none' ) {
 		return;
@@ -102,9 +112,10 @@ function buddyforms_custom_login_page_init() {
 		$new_login_page_url = get_permalink( $login_page );
 	}
 
-	if(isset( $_GET['action'] ) && $_GET['action'] == 'logout'){
+	if ( isset( $_GET['action'] ) && $_GET['action'] == 'logout' ) {
 		return;
 	}
+
 
 	if ( $pagenow == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET' ) {
 		if ( ! ( isset( $_GET['action'] ) && $_GET['action'] == 'lostpassword' || isset( $_GET['action'] ) && $_GET['action'] == 'rp' ) ) {

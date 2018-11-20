@@ -109,7 +109,7 @@ function buddyforms_custom_login_settings_page_tab( $tab ) {
                         </tr>
                         <tr valign="top">
                             <th scope="row" class="titledesc">
-                                <label for="buddyforms_custom_login_redirect_logged_off_user">Redirect logged off users and create a private site and network</label>
+                                <label for="buddyforms_custom_login_redirect_logged_off_user">Redirect logged off users to a login and create a private site or network</label>
                                 <span class="buddyforms-help-tip"></span></th>
                             <td class="forminp forminp-select">
 		                        <?php
@@ -128,20 +128,39 @@ function buddyforms_custom_login_settings_page_tab( $tab ) {
                                 <span class="buddyforms-help-tip"></span></th>
                             <td class="forminp forminp-select">
 		                        <?php
-		                        $public_accessible  = empty( $custom_login_settings['public_accessible'] ) ? '' : $custom_login_settings['public_accessible'];
+		                        $public_accessible_pages  = empty( $custom_login_settings['public_accessible_pages'] ) ? array() : $custom_login_settings['public_accessible_pages'];
 		                        if ( isset( $pages ) && is_array( $pages ) ) {
-			                        echo '<select class="bf-select2" multiple name="buddyforms_custom_login_settings[public_accessible][]" id="buddyforms_custom_login_public_accessible">';
-			                        $pages['default'] = 'WordPress Default';
+			                        echo '<select class="bf-select2" multiple name="buddyforms_custom_login_settings[public_accessible_pages][]" id="buddyforms_custom_login_public_accessible_pages">';
 			                        foreach ( $pages as $page_id => $page_name ) {
 				                        if ( ! empty( $page_name ) ) {
 
 					                        $public_accessible_selcted = '';
-				                            if( in_array($page_id, $public_accessible) ){
-					                            $public_accessible_selcted = $page_id;
-                                            }
+					                        if( in_array($page_id, $public_accessible_pages) ){
+						                        $public_accessible_selcted = $page_id;
+					                        }
 
 					                        echo '<option ' . selected( $public_accessible_selcted, $page_id ) . 'value="' . $page_id . '">' . $page_name . '</option>';
 				                        }
+			                        }
+			                        echo '</select>';
+		                        } ?>
+                            </td>
+                        </tr>
+                        <tr valign="top">
+                            <th scope="row" class="titledesc">
+                                <label for="buddyforms_custom_login_public_accessible">Public Accessible Post Types</label>
+                                <span class="buddyforms-help-tip"></span></th>
+                            <td class="forminp forminp-select">
+		                        <?php
+		                        $public_accessible_post_types  = empty( $custom_login_settings['public_accessible_post_types'] ) ? array() : $custom_login_settings['public_accessible_post_types'];
+		                        if ( isset( $pages ) && is_array( $pages ) ) {
+			                        echo '<select class="bf-select2" multiple name="buddyforms_custom_login_settings[public_accessible_post_types][]" id="buddyforms_custom_login_public_accessible_post_types">';
+			                        foreach ( get_post_types( array(   'public'   => true), 'names' ) as $post_type ) {
+				                        $public_accessible_post_types_selcted = '';
+					                        if( in_array($post_type, $public_accessible_post_types) ){
+						                        $public_accessible_post_types_selcted = $post_type;
+					                        }
+					                        echo '<option ' . selected( $public_accessible_post_types_selcted, $post_type ) . 'value="' . $post_type . '">' . $post_type . '</option>';
 			                        }
 			                        echo '</select>';
 		                        } ?>
