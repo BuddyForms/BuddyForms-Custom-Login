@@ -3,7 +3,7 @@ Contributors: svenl77, themekraft, buddyforms
 Tags: login form, login redirect, login page, custom login, login
 Requires at least: 3.9
 Tested up to: 4.9
-Stable tag: 1.0.1
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,11 +21,18 @@ This plugin enables you to create a global login and redirect the WordPress logi
         ** Above the content
         ** Under the content
         ** Use the Shortcode
+
 > * Display Registration Link?
     ** Select a registration page to rewrite the registration Link
+
 > * Redirect after Login
     ** Select a page you like to use for the redirect.
     ** redirect to the user profile or any custom URL
+
+> * Enable a private site or network
+    ** Redirect logged off users to a login and create a private site or network
+    ** Select public Accessible Pages
+    ** Select public Accessible Post Types
 
 ---
 
@@ -72,6 +79,12 @@ Head to the 'BuddyForms' menu item in your admin sidebar and go to the Settings 
 
 
 == Changelog ==
+
+= 1.1 20. Nov. 2018 =
+* Add 3 new options to enable a private site or network
+** Redirect logged off users to a login and create a private site or network
+** Select public Accessible Pages
+** Select public Accessible Post Types
 
 = 1.0.1 30. Mar. 2018 =
 * Added freemius integration
