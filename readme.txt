@@ -3,7 +3,7 @@ Contributors: svenl77, themekraft, buddyforms
 Tags: login form, login redirect, login page, custom login, login
 Requires at least: 3.9
 Tested up to: 4.9
-Stable tag: 1.1
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,8 +80,11 @@ Head to the 'BuddyForms' menu item in your admin sidebar and go to the Settings 
 
 == Changelog ==
 
+= 1.1.1 21. Nov. 2018 =
+* Added one extra check to make sure also pages with child pages or endpoints are recognised
+
 = 1.1 20. Nov. 2018 =
-* Add 3 new options to enable a private site or network
+* Added 3 new options to enable a private site or network
 ** Redirect logged off users to a login and create a private site or network
 ** Select public Accessible Pages
 ** Select public Accessible Post Types
