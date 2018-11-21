@@ -57,7 +57,13 @@ function buddyforms_custom_login_page() {
 		$new_login_page_url = get_permalink( $login_page );
 	}
 
-	if ( ! is_user_logged_in() && $redirect_logged_off_user != 'No' ) {
+ 	if ( ! is_user_logged_in() && $redirect_logged_off_user != 'No' ) {
+
+
+	    if ( in_array( get_the_ID(), $public_accessible_pages ) ) {
+		    return;
+	    }
+
 
 		if ( in_array( get_post_type(), $public_accessible_post_type ) ) {
 			return;
