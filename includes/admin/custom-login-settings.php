@@ -128,6 +128,7 @@ function buddyforms_custom_login_settings_page_tab( $tab ) {
                                 <span class="buddyforms-help-tip"></span></th>
                             <td class="forminp forminp-select">
 		                        <?php
+		                        unset($pages['none']);
 		                        $public_accessible_pages  = empty( $custom_login_settings['public_accessible_pages'] ) ? array() : $custom_login_settings['public_accessible_pages'];
 		                        if ( isset( $pages ) && is_array( $pages ) ) {
 			                        echo '<select class="bf-select2" multiple name="buddyforms_custom_login_settings[public_accessible_pages][]" id="buddyforms_custom_login_public_accessible_pages">';
