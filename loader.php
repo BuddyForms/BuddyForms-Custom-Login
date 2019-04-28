@@ -152,7 +152,8 @@ function buddyforms_site_register_link( $wp_login_form ) {
 	}
 
 	$wp_login_form = '<a href="' . $url . '">' . __( 'Register', 'buddyforms' ) . '</a> ';
-	$wp_login_form .= '<a href="' . esc_url( wp_lostpassword_url() ) . '">' . __( 'Lost Password?', 'buddyforms' ) . '</a> ';
+	$lost_password_url = apply_filters( 'buddyforms_custom_login_lost_password_url', wp_lostpassword_url() );
+	$wp_login_form .= '<a href="' . esc_url( $lost_password_url ) . '">' . __( 'Lost Password?', 'buddyforms' ) . '</a> ';
 
 	return $wp_login_form;
 }

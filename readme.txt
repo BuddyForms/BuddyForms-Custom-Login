@@ -43,7 +43,7 @@ This plugin enables you to create a global login and redirect the WordPress logi
 ---
 
 > #### Submit Issues - Contribute
-> * Pull request are welcome. BuddyForms is community driven and developed on [Github](https://buddyforms.github.io/BuddyForms/)
+> * Pull request are welcome. BuddyForms is community driven and developed on [Github](https://github.com/BuddyForms/BuddyForms-Custom-Login/issues)
 
 
 ---
