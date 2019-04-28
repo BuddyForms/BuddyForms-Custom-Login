@@ -1,7 +1,7 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: "[feature-request]"
+title: "Small Title for the request"
 labels: Missing Functionality, enhancement
 assignees: gfirem
 
