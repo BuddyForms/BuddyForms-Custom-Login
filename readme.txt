@@ -2,8 +2,8 @@
 Contributors: svenl77, themekraft, buddyforms
 Tags: login form, login redirect, login page, custom login, login
 Requires at least: 3.9
-Tested up to: 4.9
-Stable tag: 1.1.1
+Tested up to: 5.2
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,13 @@ Head to the 'BuddyForms' menu item in your admin sidebar and go to the Settings 
 
 
 == Changelog ==
+
+= 1.1.2 04. May. 2019 =
+* Added a filter to override the lost password link
+* Added the git templates
+* Update the readme.txt to point to the correct plugin url to open issues or features request
+* Remove WordPress default from the select. Its not needed and just confuses.
+* Update the git templates to submit issues or feature requests.
 
 = 1.1.1 21. Nov. 2018 =
 * Added one extra check to make sure also pages with child pages or endpoints are recognised
