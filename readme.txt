@@ -3,7 +3,7 @@ Contributors: svenl77, themekraft, buddyforms
 Tags: login form, login redirect, login page, custom login, login
 Requires at least: 3.9
 Tested up to: 5.2
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,9 @@ Head to the 'BuddyForms' menu item in your admin sidebar and go to the Settings 
 
 
 == Changelog ==
+
+= 1.1.2 06. Oct. 2019 =
+* Added support for the switching user plugin. There was an issue stopping the plugin from switching the user.
 
 = 1.1.2 04. May. 2019 =
 * Added a filter to override the lost password link
