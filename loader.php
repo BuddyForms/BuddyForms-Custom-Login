@@ -10,6 +10,7 @@
  * License: GPLv2 or later
  * Network: false
  * Text Domain: buddyforms
+ * Svn: buddyforms-custom-login-page
  *
  *****************************************************************************
  *
@@ -36,6 +37,22 @@ function buddyforms_custom_login_init() {
 	require( dirname( __FILE__ ) . '/includes/admin/custom-login-settings.php' );
 }
 
+add_filter( 'buddyforms_login_form_redirect_url', 'buddyforms_custom_login_redirect_url', 10, 1 );
+function buddyforms_custom_login_redirect_url( $redirect ) {
+	$custom_login_settings = get_option( 'buddyforms_custom_login_settings' );
+	$redirect_page         = empty( $custom_login_settings['redirect_page'] ) && $custom_login_settings['redirect_page'] === 'default' ? '' : $custom_login_settings['redirect_page'];
+	$display_login_form    = empty( $custom_login_settings['display_login_form'] ) ? '' : $custom_login_settings['display_login_form'];
+	$caller                = ! empty( $_REQUEST['caller'] ) ? sanitize_key( $_REQUEST['caller'] ) : '';
+	if ( ! empty( $redirect_page ) && ! empty( $display_login_form ) && ! empty( $caller ) && $caller === 'template' ) {
+		$redirect_page_url = get_permalink( $redirect_page );
+		if ( ! empty( $redirect_page_url ) ) {
+			return $redirect_page_url;
+		}
+	}
+
+	return $redirect;
+}
+
 add_action( 'template_redirect', 'buddyforms_custom_login_page' );
 function buddyforms_custom_login_page() {
 	global $pagenow;
@@ -57,12 +74,12 @@ function buddyforms_custom_login_page() {
 		$new_login_page_url = get_permalink( $login_page );
 	}
 
- 	if ( ! is_user_logged_in() && $redirect_logged_off_user != 'No' ) {
+	if ( ! is_user_logged_in() && $redirect_logged_off_user != 'No' ) {
 
 
-	    if ( in_array( get_the_ID(), $public_accessible_pages ) ) {
-		    return;
-	    }
+		if ( in_array( get_the_ID(), $public_accessible_pages ) ) {
+			return;
+		}
 
 
 		if ( in_array( get_post_type(), $public_accessible_post_type ) ) {
@@ -157,9 +174,9 @@ function buddyforms_site_register_link( $wp_login_form ) {
 		$url = get_permalink( $register_page );
 	}
 
-	$wp_login_form = '<a href="' . $url . '">' . __( 'Register', 'buddyforms' ) . '</a> ';
+	$wp_login_form     = '<a href="' . $url . '">' . __( 'Register', 'buddyforms' ) . '</a> ';
 	$lost_password_url = apply_filters( 'buddyforms_custom_login_lost_password_url', wp_lostpassword_url() );
-	$wp_login_form .= '<a href="' . esc_url( $lost_password_url ) . '">' . __( 'Lost Password?', 'buddyforms' ) . '</a> ';
+	$wp_login_form     .= '<a href="' . esc_url( $lost_password_url ) . '">' . __( 'Lost Password?', 'buddyforms' ) . '</a> ';
 
 	return $wp_login_form;
 }
