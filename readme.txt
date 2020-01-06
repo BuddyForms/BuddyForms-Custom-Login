@@ -79,8 +79,10 @@ Head to the 'BuddyForms' menu item in your admin sidebar and go to the Settings 
 
 
 == Changelog ==
-= 1.1.3 - 07 Oct 2019 =
-
+= 1.1.4 - 06 Jan 2020 =
+* Fixed the login redirection for the post and contact form.
+* Improved the compatibility with the setting pages of the core plugin.
+* Integrated with tk scripts.
 
 = 1.1.3 06. Oct. 2019 =
 * Added support for the switching user plugin. There was an issue stopping the plugin from switching the user.
