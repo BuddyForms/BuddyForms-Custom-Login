@@ -43,7 +43,8 @@ function buddyforms_custom_login_redirect_url( $redirect ) {
 	$redirect_page         = empty( $custom_login_settings['redirect_page'] ) && $custom_login_settings['redirect_page'] === 'default' ? '' : $custom_login_settings['redirect_page'];
 	$display_login_form    = empty( $custom_login_settings['display_login_form'] ) ? '' : $custom_login_settings['display_login_form'];
 	$caller                = ! empty( $_REQUEST['caller'] ) ? sanitize_key( $_REQUEST['caller'] ) : '';
-	if ( ! empty( $redirect_page ) && ! empty( $display_login_form ) && ! empty( $caller ) && $caller === 'template' ) {
+	$caller_redirect	   = empty( $caller ) || $caller==='direct';
+	if ( ! empty( $redirect_page ) && ! empty( $display_login_form ) && $caller_redirect) {
 		$redirect_page_url = get_permalink( $redirect_page );
 		if ( ! empty( $redirect_page_url ) ) {
 			return $redirect_page_url;
