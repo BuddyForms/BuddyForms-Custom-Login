@@ -3,7 +3,7 @@ Contributors: svenl77, themekraft, buddyforms, gfirem
 Tags: login form, login redirect, login page, custom login, login
 Requires at least: 3.9
 Tested up to: 5.3.2
-Stable tag: 1.1.4
+Stable tag: 1.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,9 @@ Head to the 'BuddyForms' menu item in your admin sidebar and go to the Settings 
 
 
 == Changelog ==
+= 1.1.5 - 11 Sep 2020 =
+* Fixed to avoid form login custom page redirection, redirect to custom page only when the user is loggin from a custom login page or wordpress default login page.
+
 = 1.1.4 - 06 Jan 2020 =
 * Fixed the login redirection for the post and contact form.
 * Improved the compatibility with the setting pages of the core plugin.
