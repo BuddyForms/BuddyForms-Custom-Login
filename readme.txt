@@ -3,7 +3,7 @@ Contributors: svenl77, themekraft, buddyforms, gfirem
 Tags: login form, login redirect, login page, custom login, login
 Requires at least: 3.9
 Tested up to: 5.7
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,9 @@ Head to the 'BuddyForms' menu item in your admin sidebar and go to the Settings 
 
 
 == Changelog ==
+= 1.1.7 - 1 Apr 2021 =
+* Improvements on the custom login page redirection to take into account the WordPress admin email confirmation.
+
 = 1.1.6 - 8 Mar 2021 =
 * Tested up with WordPress 5.7
 
