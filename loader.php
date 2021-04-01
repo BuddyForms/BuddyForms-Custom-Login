@@ -145,7 +145,9 @@ function buddyforms_custom_login_page_init() {
 	if ( isset( $_GET['action'] ) && $_GET['action'] == 'switch_to_olduser' ) {
 		return;
 	}
-
+	if ( isset( $_GET['action'] ) && $_GET['action']  == 'confirm_admin_email') {
+        return;
+    }
 
 	if ( $pagenow == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET' ) {
 		if ( ! ( isset( $_GET['action'] ) && $_GET['action'] == 'lostpassword' || isset( $_GET['action'] ) && $_GET['action'] == 'rp' ) ) {
