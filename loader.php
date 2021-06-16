@@ -217,6 +217,20 @@ function buddyforms_custom_login_the_content( $content ) {
 
 }
 
+add_filter( 'buddyforms_loggin_settings', 'buddyforms_custom_login_remember_me_as_default' );
+function buddyforms_custom_login_remember_me_as_default( $settings ) {
+
+	$bf_custom_login_settings = get_option( 'buddyforms_custom_login_settings' );
+	$login_page               = ! empty( $bf_custom_login_settings['login_page'] ) ? (int) $bf_custom_login_settings['login_page'] : '';
+	$remember_me_as_default   = ! empty( $bf_custom_login_settings['remember_me_as_default'] ) ? true : false;
+
+	if ( get_the_ID() === $login_page && $remember_me_as_default === true ) {
+		$settings['value_remember'] = true;
+	}
+
+	return $settings;
+}
+
 // Create a helper function for easy SDK access.
 function buddyforms_clp_fs() {
 	global $buddyforms_clp_fs;
