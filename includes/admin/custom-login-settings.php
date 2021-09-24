@@ -181,6 +181,18 @@ function buddyforms_custom_login_settings_page_tab( $tab ) {
 								} ?>
                             </td>
                         </tr>
+						<tr valign="top">
+                            <th scope="row" class="titledesc">
+                                <label for="buddyforms_custom_login_lavel_1">Set "Remember Me" checkbox as checked by default</label>
+                                <span class="buddyforms-help-tip"></span>
+							</th>
+                            <td>
+								<?php
+								$remember_me_as_default = ! empty( $custom_login_settings['remember_me_as_default'] ) ? 'checked' : '';
+								echo "<input type='checkbox' " . $remember_me_as_default . " name='buddyforms_custom_login_settings[remember_me_as_default]' id='buddyforms_custom_login_settings_remember_me'>"
+								?>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
 					<?php submit_button(); ?>

@@ -4,7 +4,7 @@
  * Plugin Name: BuddyForms Custom Login Page
  * Plugin URI: https://themekraft.com/products/custom-login/
  * Description: Select a Custom Login Page
- * Version: 1.1.5
+ * Version: 1.1.7
  * Author: ThemeKraft
  * Author URI: https://themekraft.com/
  * License: GPLv2 or later
@@ -78,7 +78,7 @@ function buddyforms_custom_login_page() {
 	if ( ! is_user_logged_in() && $redirect_logged_off_user != 'No' ) {
 
 
-		if ( in_array( get_the_ID(), $public_accessible_pages ) ) {
+		if ( ! get_the_ID() || in_array( get_the_ID(), $public_accessible_pages ) ) {
 			return;
 		}
 
@@ -145,7 +145,9 @@ function buddyforms_custom_login_page_init() {
 	if ( isset( $_GET['action'] ) && $_GET['action'] == 'switch_to_olduser' ) {
 		return;
 	}
-
+	if ( isset( $_GET['action'] ) && $_GET['action']  == 'confirm_admin_email') {
+        return;
+    }
 
 	if ( $pagenow == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET' ) {
 		if ( ! ( isset( $_GET['action'] ) && $_GET['action'] == 'lostpassword' || isset( $_GET['action'] ) && $_GET['action'] == 'rp' ) ) {
@@ -213,6 +215,20 @@ function buddyforms_custom_login_the_content( $content ) {
 
 	return $content;
 
+}
+
+add_filter( 'buddyforms_loggin_settings', 'buddyforms_custom_login_remember_me_as_default' );
+function buddyforms_custom_login_remember_me_as_default( $settings ) {
+
+	$bf_custom_login_settings = get_option( 'buddyforms_custom_login_settings' );
+	$login_page               = ! empty( $bf_custom_login_settings['login_page'] ) ? (int) $bf_custom_login_settings['login_page'] : '';
+	$remember_me_as_default   = ! empty( $bf_custom_login_settings['remember_me_as_default'] ) ? true : false;
+
+	if ( get_the_ID() === $login_page && $remember_me_as_default === true ) {
+		$settings['value_remember'] = true;
+	}
+
+	return $settings;
 }
 
 // Create a helper function for easy SDK access.
