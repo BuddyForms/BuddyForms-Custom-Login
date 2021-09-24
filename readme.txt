@@ -2,8 +2,8 @@
 Contributors: svenl77, themekraft, buddyforms, gfirem
 Tags: login form, login redirect, login page, custom login, login
 Requires at least: 3.9
-Tested up to: 5.7
-Stable tag: 1.1.7
+Tested up to: 5.8
+Stable tag: 1.1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,11 @@ Head to the 'BuddyForms' menu item in your admin sidebar and go to the Settings 
 
 
 == Changelog ==
+= 1.1.8 - 23 Sep 2021 =
+* Added new option to set "Remember Me" checkbox as checked by default.
+* Fixed validation on Public Accesibles Pages.
+* Tested up with WordPress 5.8
+
 = 1.1.7 - 1 Apr 2021 =
 * Improvements on the custom login page redirection to take into account the WordPress admin email confirmation.
 
