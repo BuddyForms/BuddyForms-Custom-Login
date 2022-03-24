@@ -2,8 +2,8 @@
 Contributors: svenl77, themekraft, buddyforms, gfirem
 Tags: login form, login redirect, login page, custom login, login
 Requires at least: 3.9
-Tested up to: 5.8
-Stable tag: 1.1.8
+Tested up to: 5.9
+Stable tag: 1.1.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,10 @@ Head to the 'BuddyForms' menu item in your admin sidebar and go to the Settings 
 
 
 == Changelog ==
+= 1.1.9 - 24 Mar 2022 =
+* Added new option to use external url as redirection page.
+* Tested up to WordPress 5.9
+
 = 1.1.8 - 23 Sep 2021 =
 * Added new option to set "Remember Me" checkbox as checked by default.
 * Fixed validation on Public Accesibles Pages.
