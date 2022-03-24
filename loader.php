@@ -75,6 +75,12 @@ function buddyforms_custom_login_page() {
 		$new_login_page_url = get_permalink( $login_page );
 	}
 
+	if( array_key_exists( 'use_custom_redirect_url', $custom_login_settings ) ){
+        if ( $redirect_logged_off_user == "Yes" && ! empty( $custom_login_settings['set_custom_redirect_url'] ) ){
+            $new_login_page_url = $custom_login_settings['set_custom_redirect_url'];
+        }
+    }
+
 	if ( ! is_user_logged_in() && $redirect_logged_off_user != 'No' ) {
 
 
@@ -90,6 +96,10 @@ function buddyforms_custom_login_page() {
 		if ( is_page( $public_accessible_pages ) ) {
 			return;
 		}
+
+		if (strpos($_SERVER['REQUEST_URI'], "activate") !== false){
+            return;
+        }
 
 		$buddyforms_registration_page = get_option( 'buddyforms_registration_page' );
 
@@ -284,8 +294,8 @@ function buddyforms_clp_fs_is_parent_active() {
 	}
 
 	foreach ( $active_plugins as $basename ) {
-		if ( 0 === strpos( $basename, 'buddyforms/' ) ||
-		     0 === strpos( $basename, 'buddyforms-premium/' )
+		if ( 0 === strpos( strtolower( $basename ), 'buddyforms/' ) ||
+		     0 === strpos( strtolower( $basename ), 'buddyforms-premium/' )
 		) {
 			return true;
 		}

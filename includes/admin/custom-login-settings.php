@@ -136,6 +136,30 @@ function buddyforms_custom_login_settings_page_tab( $tab ) {
 								?>
                             </td>
                         </tr>
+						<tr valign="top" class="bfcl_use_custom_url">
+                            <th scope="row" class="titledesc">
+                                <label for="buddyforms_custom_login_use_custom_redirect_url">Use custom url to redirect?</label>
+                                <span class="buddyforms-help-tip"></span>
+							</th>
+                            <td>
+								<?php
+								$use_custom_redirect_url = ! empty( $custom_login_settings['use_custom_redirect_url'] ) ? 'checked' : '';
+								echo "<input type='checkbox' " . $use_custom_redirect_url . " name='buddyforms_custom_login_settings[use_custom_redirect_url]' id='buddyforms_custom_login_use_custom_redirect_url'>";
+								?>
+                            </td>
+                        </tr>
+						<tr valign="top" class="bfcl_use_custom_url bfcl_set_custom_url">
+                            <th scope="row" class="titledesc">
+                                <label for="buddyforms_custom_login_set_custom_redirect_url">Plese enter your custom url</label>
+                                <span class="buddyforms-help-tip"></span>
+							</th>
+                            <td>
+								<?php
+								$set_custom_redirect_url = ! empty( $custom_login_settings['set_custom_redirect_url'] ) ? $custom_login_settings['set_custom_redirect_url'] : '';
+								echo "<input type='url' value='" . $set_custom_redirect_url . "' name='buddyforms_custom_login_settings[set_custom_redirect_url]' id='buddyforms_custom_login_set_custom_redirect_url' placeholder='https://example.com' style='width:400px !important;'>";
+								?>
+                            </td>
+                        </tr>
                         <tr valign="top">
                             <th scope="row" class="titledesc">
                                 <label for="buddyforms_custom_login_public_accessible">Public Accessible Pages</label>
@@ -213,4 +237,10 @@ function buddyforms_custom_login_register_option() {
 // Sanitize the Settings
 function buddyforms_custom_login_settings_default_sanitize( $new ) {
 	return $new;
+}
+
+add_action('admin_enqueue_scripts', 'buddyforms_custom_login_add_admin_js');
+function buddyforms_custom_login_add_admin_js( $hook ) {
+    wp_register_script( 'admin_js', dirname( plugin_dir_url(__FILE__) ) . '/js/admin.js', array('jquery'),'1.1', true );
+	wp_enqueue_script( 'admin_js' );
 }
