@@ -2,8 +2,8 @@
 Contributors: svenl77, themekraft, buddyforms, gfirem
 Tags: login form, login redirect, login page, custom login, login
 Requires at least: 3.9
-Tested up to: 5.9
-Stable tag: 1.1.9
+Tested up to: 5.9.3
+Stable tag: 1.1.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,9 @@ Head to the 'BuddyForms' menu item in your admin sidebar and go to the Settings 
 
 
 == Changelog ==
+= 1.1.10 - 17 May 2022 =
+* Updated readme.txt
+
 = 1.1.9 - 24 Mar 2022 =
 * Added new option to use external url as redirection page.
 * Tested up to WordPress 5.9
