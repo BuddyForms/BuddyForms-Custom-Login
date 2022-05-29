@@ -4,7 +4,7 @@
  * Plugin Name: BuddyForms Custom Login Page
  * Plugin URI: https://themekraft.com/products/custom-login/
  * Description: Select a Custom Login Page
- * Version: 1.1.10
+ * Version: 1.1.11
  * Author: ThemeKraft
  * Author URI: https://themekraft.com/
  * License: GPLv2 or later
