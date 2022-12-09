@@ -28,6 +28,8 @@ function buddyforms_custom_login_settings_page_tab( $tab ) {
 			'value'    => array(),
 			'selected' => array(),
 			'class'    => array(),
+			'id'    => array(),
+			'value'    => array(),
 		),
 	);
 	?>

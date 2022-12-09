@@ -2,8 +2,8 @@
 Contributors: svenl77, themekraft, buddyforms, gfirem
 Tags: login form, login redirect, login page, custom login, login
 Requires at least: 3.9
-Tested up to: 6.0
-Stable tag: 1.1.11
+Tested up to: 6.1.1
+Stable tag: 1.1.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,11 @@ Head to the 'BuddyForms' menu item in your admin sidebar and go to the Settings 
 
 
 == Changelog ==
+= 1.1.12 - 08 Dec 2022 =
+* Fixed issue with login page selector.
+* Fixed issue with redirect after login selector.
+* Tested up to WordPress 6.1.1
+
 = 1.1.11 - 28 May 2022 =
 * Fixed vulnerability issue.
 * Tested up to WordPress 6.0
