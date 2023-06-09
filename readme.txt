@@ -13,7 +13,15 @@ Custom Login, Custom Login Redirect, Custom Registartion Link, Registation Forms
 
 BuddyForms Custom Login is a powerful plugin that allows you to create a fully customized login and registration experience for your WordPress website. It seamlessly integrates with BuddyPress and offers a range of features to enhance your user login and registration processes.
 
-With BuddyForms Custom Login, you can easily customize the login and registration forms to match your site's branding. You have full control over the fields, layout, and design. It also enables front-end login and registration, allowing users to access their profiles directly from the front end of your site.
+With BuddyForms Custom Login, you can easily customize the login and registration forms to match your site's branding. You have full control over the fields, layout, and design. It also enables BuddyForms registration, allowing users to access their profiles directly from the front end of your site.
+
+Change the Registration Link 
+Change the Redirect after login
+Create a private site or Network
+make your site Private 
+Make your community private 
+Redirect logged off users to a login and create a private site or network
+Select Public Accessible Pages or Public Accessible Post Types
 
 ####Features
 
