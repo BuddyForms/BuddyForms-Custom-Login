@@ -11,31 +11,39 @@ Custom Login, Custom Login Redirect, Custom Registartion Link, Registation Forms
 
 == Description ==
 
-Create a fully customized login and registration experience for your WordPress website. Seamlessly integrates with BuddyPress. Ritch Features to enhance your user login and registration processes.
+Create a fully customized login and registration experience for your WordPress website. Seamlessly integrates with BuddyPress. Ritch Features to enhance your user login and registration processes. 
 
-With BuddyForms Custom Login, you can easily Create a private community and make Login required for your BuddyPress Network and WordPress Site. Customize the login and registration forms to match your site's branding. You have full control over the login url, the login redirect and the registartion form.
+Restrict content on your website. With this plugin, you can turn your website into a private network, accessible only to registered members. Customize the login and registration forms to match your site's branding. You have full control over the login url, the login redirect and the registartion form.
 
-####Features
+== Key Features ==
+- **Custom Login Form**: Create a personalized login form that matches your website's design and branding.
+- **Restrict Content**: Choose which pages, posts, or custom post types should be accessible to the public and make the rest members only.
+- **Private Network**: Transform your WordPress site into a private network by restricting access to non-registered users.
+- **Members Only**: Ensure that your content is exclusive to registered members, providing them with a unique user experience.
 
 ##Seamless integration with BuddyPress
-Seamless integration with BuddyForms: Use this plugin in conjunction with BuddyForms to extend the functionality and create advanced user management solutions.
+Seamless integration with BuddyPress Use this plugin to create a custom BuddyPress Login
 
+###Create a Intranet with BuddyPress and Buddyforms 
 ##Restrict the site access and create a private community
 #Restrict your site and network and enable acces to individuell pages or complete post types.
 #Redirect logged off users to a login and create a private site or network
 #Select public Accessible Pages
 #Select public Accessible Post Types
 
-##Customizable login and registration forms
-#Customizable login. Add to any page 
 
-##Login Page
+##Login Pagshorte
 Select the page you want to use for the global Login.
 #Display Login Form?
-verwrite the page content
-Above the content
-Under the content
-#Use the Shortcode
+ a) overwrite the page content
+ b) Above the content
+ c) Under the content
+
+#Use the Login Block
+Its Gutenberg ready and can be used in any Gutenberg Editor as Login Block
+
+#Use the Shortcodes everywhere
+You can use the shortcode and all its attributes
 
 ##Display Registration Link?
 Select a registration page to rewrite the registration Link
@@ -44,10 +52,16 @@ Select a registration page to rewrite the registration Link
 Select a page you like to use for the redirect.
 redirect to the user profile or any custom URL
 
-> #### Follow Us
-> [Blog](https://themekraft.com/blog/) | [Facebook](https://www.facebook.com/buddyforms/) | [YouTube](https://www.youtube.com/playlist?list=PLYPguOC5yk7_aB2Q2FTaktqHCXDc_mzqb)
+== Frequently Asked Questions ==
+Q: Can I customize the appearance of the login form?
+A: Yes, BuddyForms Custom Login allows you to style the login form to match your website's design and branding.
 
-> **Powered with ❤ by [ThemeKraft](https://themekraft.com)**
+Q: Can I restrict specific content to registered members only?
+A: Absolutely! You have full control over which pages, posts, or custom post types should be restricted to registered users.
+
+Q: Is it possible to create a private network with this plugin?
+A: Yes, BuddyForms Custom Login enables you to transform your WordPress site into a private network by limiting access to non-registered users.
+
 
 == Installation ==
 
