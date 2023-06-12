@@ -1,6 +1,6 @@
 === BuddyForms Custom Login ===
 Contributors: svenl77, themekraft, buddyforms, gfirem
-Tags: login form, login redirect, login page, custom login, login
+Tags: custom login, login form, restrict content, private network, members only
 Requires at least: 3.9
 Tested up to: 6.2.1
 Stable tag: 1.1.13
@@ -32,18 +32,32 @@ Seamless integration with BuddyPress Use this plugin to create a custom BuddyPre
 #Select public Accessible Post Types
 
 
-##Login Pagshorte
-Select the page you want to use for the global Login.
-#Display Login Form?
+##Overwrite the default WordPress Login
+Select the page you want to use for the global Login and define how to display the Login
  a) overwrite the page content
  b) Above the content
  c) Under the content
 
 #Use the Login Block
-Its Gutenberg ready and can be used in any Gutenberg Editor as Login Block
+Its Gutenberg ready and can be used in any Gutenberg Editor as Login Block. Create Custom Logins with a Block
 
 #Use the Shortcodes everywhere
-You can use the shortcode and all its attributes
+
+[bf_login_form]
+
+##Options:
+redirect_url  --> is optional
+After successful login, redirect to the given URL 
+
+##Label options
+title --> is optional | default values: Login 
+label_username --> is optional | default values: Username or Email Address 
+label_password --> is optional | default values: Password 
+label_remember --> is optional | default values: Remember Me 
+label_log_in --> is optional | default values: Log In 
+Examples
+
+[bf_login_form redirect_url="/test-shortcodes"]
 
 ##Display Registration Link?
 Select a registration page to rewrite the registration Link
