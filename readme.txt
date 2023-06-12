@@ -21,28 +21,28 @@ With BuddyForms Custom Login, you can easily Create a private community and make
 Seamless integration with BuddyForms: Use this plugin in conjunction with BuddyForms to extend the functionality and create advanced user management solutions.
 
 ##Restrict the site access and create a private community
-    ** Restrict your site and network and enable acces to individuell pages or complete post types.
-    ** Redirect logged off users to a login and create a private site or network
-    ** Select public Accessible Pages
-    ** Select public Accessible Post Types
+#Restrict your site and network and enable acces to individuell pages or complete post types.
+#Redirect logged off users to a login and create a private site or network
+#Select public Accessible Pages
+#Select public Accessible Post Types
 
 ##Customizable login and registration forms
-Customizable login. Add to any page 
+#Customizable login. Add to any page 
 
 ##Login Page
 Select the page you want to use for the global Login.
-> * Display Login Form?
-	** Overwrite the page content
-	** Above the content
-	** Under the content
-	** Use the Shortcode
+#Display Login Form?
+verwrite the page content
+Above the content
+Under the content
+#Use the Shortcode
 
 ##Display Registration Link?
-    ** Select a registration page to rewrite the registration Link
+Select a registration page to rewrite the registration Link
 
 ##Redirect after Login
-    ** Select a page you like to use for the redirect.
-    ** redirect to the user profile or any custom URL
+Select a page you like to use for the redirect.
+redirect to the user profile or any custom URL
 
 > #### Follow Us
 > [Blog](https://themekraft.com/blog/) | [Facebook](https://www.facebook.com/buddyforms/) | [YouTube](https://www.youtube.com/playlist?list=PLYPguOC5yk7_aB2Q2FTaktqHCXDc_mzqb)
