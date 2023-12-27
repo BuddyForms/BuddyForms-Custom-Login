@@ -2,8 +2,8 @@
 Contributors: svenl77, themekraft, buddyforms, gfirem
 Tags: custom login, login form, restrict content, private network, members only
 Requires at least: 3.9
-Tested up to: 6.2.1
-Stable tag: 1.1.13
+Tested up to: 6.4.2
+Stable tag: 1.1.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,6 +99,11 @@ Head to the 'BuddyForms' menu item in your admin sidebar and go to the Settings 
 
 
 == Changelog ==
+= 1.1.14 - 26 Dec 2023 =
+* Updated Freemius SDK.
+* Improved plugin description.
+* Tested up to WordPress 6.4.2
+
 = 1.1.13 - 18 May 2023 =
 * Tested up to WordPress 6.2.1
 
